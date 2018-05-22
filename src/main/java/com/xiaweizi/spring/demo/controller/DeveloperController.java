@@ -49,7 +49,7 @@ public class DeveloperController {
     public CommonModel getAllDevelopers() {
         List<DeveloperModel> developerList = developerDAO.getAllDevelopers();
         CommonModel commonModel = new CommonModel();
-        if (developerList.size() > 0) {
+        if (developerList != null) {
             commonModel.setSuccess();
             commonModel.setObject(developerList);
         } else {
