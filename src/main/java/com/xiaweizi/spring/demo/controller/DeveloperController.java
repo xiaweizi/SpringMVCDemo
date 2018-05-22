@@ -75,11 +75,22 @@ public class DeveloperController {
         return commonModel;
     }
 
-    @RequestMapping(value = "/api/developer/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/developer/add", method = RequestMethod.GET)
     @ResponseBody
     public CommonModel addDeveloper(String name, String site, String avatar) {
         //自动匹配参数
         System.out.println("name=" + name);
+        List<DeveloperModel> developerList = developerDAO.getAllDevelopers();
+        if (developerList != null && developerList.size() > 0) {
+            for (DeveloperModel developerModel : developerList) {
+                if (name.equals(developerModel.getName())) {
+                    CommonModel commonModel = new CommonModel();
+                    commonModel.setCode(1011);
+                    commonModel.setMsg("该用户已经存在");
+                    return commonModel;
+                }
+            }
+        }
         DeveloperModel developerModel = new DeveloperModel();
         developerModel.setName(name);
         developerModel.setSite(site);
