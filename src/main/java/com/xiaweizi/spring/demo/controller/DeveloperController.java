@@ -75,7 +75,7 @@ public class DeveloperController {
         return commonModel;
     }
 
-    @RequestMapping(value = "/api/developer/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/developer/add", method = RequestMethod.POST)
     @ResponseBody
     public CommonModel addDeveloper(String name, String site, String avatar) {
         //自动匹配参数

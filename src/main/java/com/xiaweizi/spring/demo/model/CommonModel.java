@@ -14,7 +14,6 @@ import com.xiaweizi.spring.demo.util.ConstantUtil;
 
 public class CommonModel {
 
-    //code，0：接口请求成功，有数据返回；1：接口请求成功，无数据返回。
     private int code;
     //msg
     private String msg;
